@@ -1,0 +1,48 @@
+---
+export interface Props{
+    titulo: string,
+    descripcion: string,
+    imagen: string
+}
+
+const {titulo, descripcion, imagen } = Astro.props;
+---
+
+<div class="contenedor-tarjeta">
+    <figure>
+        <img src={imagen} alt="">
+    </figure>
+    <article>
+        <h3>{titulo}</h3>
+        <p>{descripcion}</p>
+    </article>
+</div>
+
+<style>
+    .contenedor-tarjeta{
+        background-color: var(--color-secundario-ario);
+        border-radius: 2px;
+        border: 1px solid var(--color-bordes);
+    }
+
+    figure{
+        width: 100%;
+    }
+
+    img{
+        max-width: 100%;
+        border-radius: 2px;
+    }
+
+    article{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    p{
+        color: #AD94C7;
+    }
+</style>

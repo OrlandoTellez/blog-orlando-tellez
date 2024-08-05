@@ -15,7 +15,6 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
@@ -26,9 +25,13 @@ const { title } = Astro.props;
 <style is:global>
 	:root{
 		--color-principal: #261A33;
+		--color-secundario: #261A33;
+		--color-bordes: #4D3366;
 		--color-texto: #ffffff;
 		--titulo: 48px;
-		--texto: 16px
+		--subtitulo: 32px;
+		--titulos-pequeños: 22px;
+		--texto: 16px;
 	}
 
 	*{
@@ -44,6 +47,11 @@ const { title } = Astro.props;
 	h1{
 		font-size: var(--titulo);
 	}
+
+	h2{
+		font-size: var(--subtitulo);
+	}
+
 	p{
 		font-size: var(--texto);
 	}
