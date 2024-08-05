@@ -1,20 +1,21 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import Hero from '@/sections/Hero.astro';
-import ProyectosRecientes from '@/sections/ProyectosRecientes.astro';
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/sections/Hero.astro";
+import TodosLosProyectos from "@/sections/TodosLosProyectos.astro"
 ---
 
 <Layout title="Proyectos">
-	<main>
-		<Hero />
-	</main>
+  <main>
+    <TodosLosProyectos />
+  </main>
 </Layout>
 
 <style>
-	main {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+  }
 </style>
