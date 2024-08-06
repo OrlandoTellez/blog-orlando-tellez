@@ -2,10 +2,11 @@
 export interface Props{
     titulo: string,
     descripcion: string,
-    imagen: string
+    imagen: string,
+    slug: string
 }
 
-const {titulo, descripcion, imagen } = Astro.props;
+const {titulo, descripcion, imagen, slug} = Astro.props;
 ---
 
 <div class="contenedor-tarjeta">
@@ -15,6 +16,7 @@ const {titulo, descripcion, imagen } = Astro.props;
     <article>
         <h3>{titulo}</h3>
         <p>{descripcion}</p>
+        <a href=`../proyectos/${slug}`>Ver proyecto</a>
     </article>
 </div>
 

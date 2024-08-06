@@ -1,31 +1,27 @@
 ---
+
 import TarjetasDeProyectos from "@/components/TarjetasDeProyectos.astro";
+import { getCollection } from "astro:content";
+
+const proyectos = await getCollection("proyectos");
 ---
 
 <section>
-    <div class="section-container">
-        <h2>Proyectos Recientes</h2>
-        <div class="contenedor-tarjetas">
-            <TarjetasDeProyectos
-            titulo="Coffe Api"
-            descripcion="Proyecto desarrollado usando React"
-            imagen="imagenes/imagenes-proyectos/proyecto-cafe.png"
-            />
-
-            <TarjetasDeProyectos
-            titulo="Coffe Api"
-            descripcion="Proyecto desarrollado usando React"
-            imagen="imagenes/imagenes-proyectos/proyecto-cafe.png"
-            />
-
-            <TarjetasDeProyectos
-            titulo="Coffe Api"
-            descripcion="Proyecto desarrollado usando React"
-            imagen="imagenes/imagenes-proyectos/proyecto-cafe.png"
-            />
-
-        </div>
+  <div class="section-container">
+    <h2>Proyectos Recientes</h2>
+    <div class="contenedor-tarjetas">
+      {
+        proyectos.map((proyecto) => (
+          <TarjetasDeProyectos
+            titulo={proyecto.data.titulo}
+            descripcion={proyecto.data.descripcion}
+            imagen={proyecto.data.imagen}
+            slug={proyecto.slug}
+          />
+        ))
+      }
     </div>
+  </div>
 </section>
 
 <style>
@@ -39,12 +35,10 @@ import TarjetasDeProyectos from "@/components/TarjetasDeProyectos.astro";
     max-width: 1024px;
   }
 
-  .section-container{
+  .section-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    
-
   }
 
   .contenedor-tarjetas {
@@ -55,8 +49,8 @@ import TarjetasDeProyectos from "@/components/TarjetasDeProyectos.astro";
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
-  @media only screen and (min-width: 1024px){
-    section{
+  @media only screen and (min-width: 1024px) {
+    section {
       padding-inline: 0px;
     }
   }
